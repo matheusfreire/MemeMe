@@ -25,8 +25,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
        
         initializeTextField(topTextField, text: "TOP")
         initializeTextField(bottomTextField, text: "BOTTOM")
+        shareButton.isEnabled = false
     }
     
     private func initializeTextField(_ textField: UITextField, text: String) {
@@ -84,15 +86,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     func generateMemedImage() -> UIImage {
 
         // Render view to an image
-        navBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        topToolbar.isHidden = true
         bottomToolbar.isHidden = true
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        navBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         bottomToolbar.isHidden = false
+        topToolbar.isHidden = false
 
         return memedImage
     }
@@ -101,6 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         if let image = info[.originalImage] as? UIImage {
             imageView.image = image
         }
+        shareButton.isEnabled = true
         dismiss(animated: true)
     }
     
