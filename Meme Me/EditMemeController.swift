@@ -7,10 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
-                        UINavigationControllerDelegate {
+class EditMemeController: UIViewController, UIImagePickerControllerDelegate,
+                          UINavigationControllerDelegate {
     
     // MARK: Properties
+    
+    private var offsetY:CGFloat = 0
     
     let textFieldDelegate = MemeMeTextFieldDelegate()
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
@@ -32,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         initializeTextField(topTextField, text: "TOP")
         initializeTextField(bottomTextField, text: "BOTTOM")
         shareButton.isEnabled = false
@@ -40,14 +42,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     private func initializeTextField(_ textField: UITextField, text: String) {
         textField.text = text
-        textField.textAlignment = .center
         textField.delegate = textFieldDelegate
         textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+#if targetEnvironment(simulator)
+        cameraButton.isEnabled = false
+#else
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+#endif
         subscribeToKeyboardNotifications()
     }
     
@@ -57,18 +63,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // MARK: Actions
-
+    
     @IBAction func pickAnImageFromAlbum(_ sender:Any) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = .photoLibrary
-        present(pickerController, animated: true, completion: nil)
+        pickImage(sourceType: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender:Any) {
+        pickImage(sourceType: .camera)
+    }
+    
+    private func pickImage(sourceType: UIImagePickerController.SourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = .camera
+        pickerController.sourceType = sourceType
         present(pickerController, animated: true, completion: nil)
     }
     
@@ -76,7 +83,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         let memeImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         activityController.completionWithItemsHandler = { activity, success, items, error in
-            self.save()
+            if success {
+                self.save()
+            }
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -84,8 +93,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     func generateMemedImage() -> UIImage {
-
-        // Render view to an image
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         topToolbar.isHidden = true
         bottomToolbar.isHidden = true
@@ -97,7 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         bottomToolbar.isHidden = false
         topToolbar.isHidden = false
-
+        
         return memedImage
     }
     
@@ -127,16 +134,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if view.frame.origin.y == 0 {
-            view.frame.origin.y = -getKeyboardHeight(notification)
-       }
+            if bottomTextField.isFirstResponder {
+                view.frame.origin.y = -getKeyboardHeight(notification)
+            }
+        }
     }
-                                               
+    
     @objc func keyboardWillDisappear(_ notification: Notification) {
-       view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     
     func save() {
-        let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imageView.image!, memeImage: generateMemedImage())
+        let _ = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imageView.image!, memeImage: generateMemedImage())
     }
 }
