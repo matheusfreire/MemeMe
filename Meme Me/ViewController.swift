@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth:  -4.0
+        NSAttributedString.Key.strokeWidth:  -4.0,
     ]
     
     // MARK: Outlets
