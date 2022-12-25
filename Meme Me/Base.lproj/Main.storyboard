@@ -52,15 +52,15 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2hF-jh-1bU"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13p-yV-Ehy">
-                                <rect key="frame" x="100" y="103" width="193" height="18.666666666666671"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="13p-yV-Ehy">
+                                <rect key="frame" x="194.66666666666666" y="103" width="4" height="18.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-ix-Vrb">
-                                <rect key="frame" x="100" y="755.33333333333337" width="193" height="18.666666666666629"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YTU-ix-Vrb">
+                                <rect key="frame" x="194.66666666666666" y="755.33333333333337" width="4" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -74,15 +74,11 @@
                             <constraint firstItem="RXm-Bp-gn8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LwJ-fZ-0CG"/>
                             <constraint firstItem="Uxi-Em-FyE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Osd-rM-7Qz"/>
                             <constraint firstItem="Ex1-9w-uO0" firstAttribute="top" secondItem="Uxi-Em-FyE" secondAttribute="bottom" id="Q8O-gX-meS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YTU-ix-Vrb" secondAttribute="trailing" constant="100" id="Rmh-jo-QC5"/>
                             <constraint firstItem="YTU-ix-Vrb" firstAttribute="bottom" secondItem="RXm-Bp-gn8" secondAttribute="top" id="VNr-NP-Uz3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13p-yV-Ehy" secondAttribute="trailing" constant="100" id="cL6-Lg-Xce"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uxi-Em-FyE" secondAttribute="trailing" id="hdX-9B-VvP"/>
-                            <constraint firstItem="13p-yV-Ehy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="jd5-uL-YVG"/>
                             <constraint firstItem="Ex1-9w-uO0" firstAttribute="bottom" secondItem="RXm-Bp-gn8" secondAttribute="top" id="jec-oD-tgC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ex1-9w-uO0" secondAttribute="trailing" id="lt8-Ae-8z6"/>
                             <constraint firstItem="RXm-Bp-gn8" firstAttribute="leading" secondItem="Uxi-Em-FyE" secondAttribute="leading" id="rXp-DE-dAv"/>
-                            <constraint firstItem="YTU-ix-Vrb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="yEO-p5-RaL"/>
                             <constraint firstItem="13p-yV-Ehy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zOo-36-3ly"/>
                         </constraints>
                     </view>

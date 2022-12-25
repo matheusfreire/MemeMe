@@ -45,6 +45,7 @@ class EditMemeController: UIViewController, UIImagePickerControllerDelegate,
         textField.delegate = textFieldDelegate
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center
+        textField.autocapitalizationType = .allCharacters
     }
     
     override func viewWillAppear(_ animated: Bool) {
