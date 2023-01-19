@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -86,7 +85,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="UyU-zr-36p">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="Y2m-OB-h4U">
-                            <color key="tintColor" name="AccentColor"/>
+                            <color key="tintColor" systemColor="linkColor"/>
                             <connections>
                                 <action selector="newMeme:" destination="TC7-c7-i5i" id="8i7-Dk-mOT"/>
                             </connections>
@@ -244,7 +243,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="OSs-qA-R1H">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="MhN-Ek-hBh">
-                            <color key="tintColor" name="AccentColor"/>
+                            <color key="tintColor" systemColor="linkColor"/>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -257,9 +256,6 @@
         <image name="circle.grid.3x3.fill" catalog="system" width="128" height="111"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
