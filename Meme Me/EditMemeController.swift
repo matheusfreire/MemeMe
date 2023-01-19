@@ -32,6 +32,7 @@ class EditMemeController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +57,8 @@ class EditMemeController: UIViewController, UIImagePickerControllerDelegate,
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
 #endif
         subscribeToKeyboardNotifications()
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,6 +150,8 @@ class EditMemeController: UIViewController, UIImagePickerControllerDelegate,
     
     
     func save() {
-        let _ = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imageView.image!, memeImage: generateMemedImage())
+        let meme = Meme(topText: topTextField.text, bottomText: bottomTextField.text, originalImage: imageView.image!, memeImage: generateMemedImage())
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 }
