@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+// MARK: - SentMemesTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+
+class SentMemesTableViewController: UITableViewController {
     
     // MARK: Properties
     var memes: [Meme]! {
@@ -23,11 +25,11 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     // MARK: Table View Data Source
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")!
         let meme = self.memes[(indexPath as NSIndexPath).row]
         

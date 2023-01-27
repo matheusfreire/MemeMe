@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomMemeCell: UICollectionViewCell {
+class MemeCollectionViewCell: UICollectionViewCell {
     
     // MARK: Outlets
     

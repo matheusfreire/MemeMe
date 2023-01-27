@@ -19,6 +19,7 @@ class SentMemesCollectionViewController : UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        collectionView!.reloadData()
     }
     
     @IBAction func newMeme(_ sender: Any) {
@@ -34,7 +35,7 @@ class SentMemesCollectionViewController : UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! CustomMemeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         cell.memeImageView?.image = meme.memeImage
         return cell
