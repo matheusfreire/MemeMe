@@ -21,8 +21,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CA14B892-F33C-460A-A59C-1B281AACE39E"
-            shouldBeEnabled = "Yes"
+            uuid = "FB1C7B16-1A38-44F5-B968-E78FFA3CACAC"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Meme Me/SentMemesCollectionViewController.swift"

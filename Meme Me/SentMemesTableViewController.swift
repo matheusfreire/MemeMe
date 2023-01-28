@@ -17,6 +17,13 @@ class SentMemesTableViewController: UITableViewController {
         return appDelegate.memes
     }
     
+    // MARK: Life Cyle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        tableView!.reloadData()
+    }
+    
     // MARK: Action function
     @IBAction func newMeme(_ sender: Any) {
         let editMemeController = self.storyboard!.instantiateViewController(withIdentifier: "EditMemeController") as! EditMemeController
@@ -37,6 +44,12 @@ class SentMemesTableViewController: UITableViewController {
         cell.imageView?.image = meme.memeImage
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
 }
