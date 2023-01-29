@@ -70,11 +70,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFU-8Y-f7P" userLabel="Meme Image View">
-                                            <rect key="frame" x="-57" y="0.0" width="240" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MFU-8Y-f7P" userLabel="Meme Image View">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="MFU-8Y-f7P" secondAttribute="bottom" id="VDw-Uk-CQP"/>
+                                        <constraint firstItem="MFU-8Y-f7P" firstAttribute="leading" secondItem="S0c-l7-iiC" secondAttribute="leading" id="nKl-eA-fSi"/>
+                                        <constraint firstAttribute="trailing" secondItem="MFU-8Y-f7P" secondAttribute="trailing" id="wbd-oy-bKa"/>
+                                        <constraint firstItem="MFU-8Y-f7P" firstAttribute="top" secondItem="S0c-l7-iiC" secondAttribute="top" id="xMl-bz-Pps"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="memeImageView" destination="MFU-8Y-f7P" id="U1c-Z7-Re0"/>
